@@ -45,3 +45,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Compiler
+*.pyc
+
+# DB
+sqlite.db
+
+# Logger
+logs/debug
+logs/debug*
