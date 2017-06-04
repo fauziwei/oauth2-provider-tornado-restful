@@ -10,11 +10,12 @@ import lib.models as models
 logger = logging.getLogger(__name__)
 
 class Application(web.Application):
-	access_token_cache = cache.Cache(
-		host=settings.get('redis_host'),
-		port=settings.get('redis_port'),
-		db=settings.get('redis_db')
-	)
+	cache_cfg = {
+		'host': settings.get('redis_host'),
+		'port': settings.get('redis_port'),
+		'db': settings.get('redis_db')
+	}
+	access_token_cache = cache.Cache(**cache_cfg)
 	models = models
 
 	def __init__(self):

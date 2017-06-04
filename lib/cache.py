@@ -4,9 +4,12 @@ import redis
 import redis.exceptions
 
 class Cache(object):
+	__slots__ = ('rds', 'host', 'port', 'db')
 
-	def __init__(self, host='127.0.0.1', port=6379, db=0):
-		self.rds = redis.StrictRedis(host=host, port=port, db=db)
+	def __init__(self, *args, **kwargs):
+		self.rds = redis.StrictRedis(
+			host=kwargs['host'], port=kwargs['port'], db=kwargs['db']
+		)
 
 	def expire(self, key, ttl):
 		# ttl in second
