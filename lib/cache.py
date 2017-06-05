@@ -4,7 +4,8 @@ import redis
 import redis.exceptions
 
 class Cache(object):
-	__slots__ = ('rds', 'host', 'port', 'db')
+	# __slots__ = ('rds', 'host', 'port', 'db')
+	__slots__ = ('rds')
 
 	def __init__(self, *args, **kwargs):
 		self.rds = redis.StrictRedis(
